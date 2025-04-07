@@ -6,6 +6,7 @@ public class RentalSystem {
     private List<Vehicle> vehicles = new ArrayList<>();
     private List<Customer> customers = new ArrayList<>();
     private RentalHistory rentalHistory = new RentalHistory();
+    private static RentalSystem instance;
 
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
@@ -89,4 +90,9 @@ public class RentalSystem {
                 return c;
         return null;
     }
+    
+    public static RentalSystem getInstance() {
+    	return instance;
+    }
+    
 }
