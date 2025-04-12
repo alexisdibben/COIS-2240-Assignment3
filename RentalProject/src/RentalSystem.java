@@ -8,9 +8,16 @@ public class RentalSystem {
     private RentalHistory rentalHistory = new RentalHistory();
     private static RentalSystem instance;
 
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
-        saveVehicle(vehicle);
+    public boolean addVehicle(Vehicle vehicle) {
+    	if (findVehicleByPlate(vehicle.getLicensePlate()) != null) {
+    		System.out.println("This license plate has already been added.");
+    		return false;
+    	}
+    	else {
+    		vehicles.add(vehicle);
+            saveVehicle(vehicle);
+            return true;
+    	}
     }
 
     public void addCustomer(Customer customer) {
