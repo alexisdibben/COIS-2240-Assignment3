@@ -30,6 +30,7 @@ public class RentalSystem {
         if (vehicle.getStatus() == Vehicle.VehicleStatus.AVAILABLE) {
             vehicle.setStatus(Vehicle.VehicleStatus.RENTED);
             rentalHistory.addRecord(new RentalRecord(vehicle, customer, date, amount, "RENT"));
+            saveRecord(new RentalRecord(vehicle, customer, date, amount, "RENT"));
             System.out.println("Vehicle rented to " + customer.getCustomerName());
         }
         else {
@@ -37,7 +38,7 @@ public class RentalSystem {
         }
     }
 
-    public void returnVehicle(Vehicle vehicle, Customer customer, LocalDate date, double extraFees) {
+	public void returnVehicle(Vehicle vehicle, Customer customer, LocalDate date, double extraFees) {
         if (vehicle.getStatus() == Vehicle.VehicleStatus.RENTED) {
             vehicle.setStatus(Vehicle.VehicleStatus.AVAILABLE);
             rentalHistory.addRecord(new RentalRecord(vehicle, customer, date, extraFees, "RETURN"));
@@ -46,6 +47,7 @@ public class RentalSystem {
         else {
             System.out.println("Vehicle is not rented.");
         }
+        saveRecord(new RentalRecord(vehicle, customer, date, extraFees, "RETURN"));
     }    
 
     public void displayAvailableVehicles() {
@@ -113,13 +115,11 @@ public class RentalSystem {
     public void saveCustomer(Customer customer) {
     	File addCustomersToTxt = new File("customers.txt");
     	addCustomersToTxt.append(customer);
-    	
     }
     
     public void saveRecord(RentalRecord record) {
     	File addRecordsToTxt = new File("rental_records.txt");
     	addRecordsToTxt.append(record);
-    	
     }
     
     private void loadData() {
