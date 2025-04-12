@@ -10,10 +10,12 @@ public class RentalSystem {
 
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
+        saveVehicle(vehicle);
     }
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
+        saveCustomer(customer);
     }
 
     public void rentVehicle(Vehicle vehicle, Customer customer, LocalDate date, double amount) {
@@ -93,6 +95,21 @@ public class RentalSystem {
     
     public static RentalSystem getInstance() {
     	return instance;
+    }
+    
+    public void saveVehicle(Vehicle vehicle){
+    	// adds to text file
+    	
+    }
+    
+    public void saveCustomer(Customer customer) {
+    	// adds to text file
+    	
+    }
+    
+    public void saveRecord(RentalRecord record) {
+    	// adds to text file
+    	
     }
     
 }
