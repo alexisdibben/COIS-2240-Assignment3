@@ -112,4 +112,11 @@ public class RentalSystem {
     	
     }
     
+    private void loadData() {
+    	// load vehicles from vehicles.txt
+    	// load customers from customers.txt
+    	// load records from rental_records.txt
+    	// call loadData()
+    }
+    
 }
