@@ -1,4 +1,5 @@
 import java.util.List;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -105,17 +106,19 @@ public class RentalSystem {
     }
     
     public void saveVehicle(Vehicle vehicle){
-    	// adds to text file
-    	
+    	File addVehiclesToTxt = new File("vehicles.txt");
+    	addVehiclesToTxt.append(vehicle);
     }
     
     public void saveCustomer(Customer customer) {
-    	// adds to text file
+    	File addCustomersToTxt = new File("customers.txt");
+    	addCustomersToTxt.append(customer);
     	
     }
     
     public void saveRecord(RentalRecord record) {
-    	// adds to text file
+    	File addRecordsToTxt = new File("rental_records.txt");
+    	addRecordsToTxt.append(record);
     	
     }
     
