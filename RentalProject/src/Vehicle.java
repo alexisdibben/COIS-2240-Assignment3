@@ -48,5 +48,10 @@ public abstract class Vehicle {
     public String getInfo() {
         return "| " + licensePlate + " | " + make + " | " + model + " | " + year + " | " + status + " |";
     }
+    
+    @Test
+    private isValidPlate(String plate) {
+    	
+    }
 
 }
